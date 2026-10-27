@@ -118,8 +118,15 @@ function buildPlaylist() {
      3. Write an if / else if that assigns `songs` based on
         the mode
      ===================================================== */
-
-
+    let songs = [];
+    if (modeSelector.value === "quickPlay") {
+      songs = allSongs.slice(0,3);
+      console.log(songs);
+    }
+    else if (modeSelector.value === "fullSession") {
+      songs = allSongs;
+      console.log(songs);
+    }
 
   /* =====================================================
      DEV TEAMS — STEP 6: Conditional Feedback
@@ -165,7 +172,18 @@ function buildPlaylist() {
      YOUR CODE GOES HERE:
      ===================================================== */
 
-
+    container.innerHTML = "";
+    songsRemovedCount = 0;
+    milestone.innerHTML = "";
+    if (songs.length === 0) {
+      feedback.textContent = "no songs found";
+      feedback.className = "feedback-box error";
+    }
+    else {
+      feedback.textContent = `${songs.length} songs found`;
+      feedback.className = "feedback-box success";
+      console.log(songs.length);
+    }
 
   /* =====================================================
      DEV TEAMS — STEP 7: The Loop (⭐⭐⭐ MOST IMPORTANT!)
@@ -182,7 +200,9 @@ function buildPlaylist() {
      YOUR CODE GOES HERE:
      ===================================================== */
 
+    songs.forEach(songs => {
 
+    });
 
     /* =====================================================
        DEV TEAMS — STEP 8: Create and Display DOM Elements
